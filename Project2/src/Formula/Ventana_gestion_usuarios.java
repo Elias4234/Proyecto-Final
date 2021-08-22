@@ -13,6 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import Proyecto.ConexionMySQL;
 import Proyecto.SQLUsuarios;
@@ -21,6 +22,13 @@ public class Ventana_gestion_usuarios extends JFrame {
 	ConexionMySQL cc = new ConexionMySQL();
 	Connection con = cc.ConectarBasedeDatos();
 	SQLUsuarios SU = new SQLUsuarios();
+	public void limpiarTabla() {
+		DefaultTableModel model = new DefaultTableModel();
+		for(int i = 0; i <= table.getRowCount(); i++ ) {
+			model.removeRow(i);
+			i = i - 1;
+		}
+	}
 	/**
 	 * 
 	 */
@@ -92,6 +100,7 @@ public class Ventana_gestion_usuarios extends JFrame {
 				dispose();
 				Ventana_Actualizacion frame = new Ventana_Actualizacion();
 				frame.setVisible(true);
+				limpiarTabla();
 				SU.Mostrar();
 			}
 		});
@@ -106,6 +115,7 @@ public class Ventana_gestion_usuarios extends JFrame {
 				dispose();
 				Ventana_Eliminacion frame = new Ventana_Eliminacion();
 				frame.setVisible(true);
+				limpiarTabla();
 				SU.Mostrar();
 			}
 		});

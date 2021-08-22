@@ -13,12 +13,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableModel;
 
 import Proyecto.ConexionMySQL;
 import Proyecto.SQLProductos;
 
 public class Ventana_gestion_productos extends JFrame {
-
+	public void limpiarTabla() {
+		DefaultTableModel model = new DefaultTableModel();
+		for(int i = 0; i <= table.getRowCount(); i++ ) {
+			model.removeRow(i);
+			i = i -1;
+		}
+	}
 	ConexionMySQL cc = new ConexionMySQL();
 	Connection con = cc.ConectarBasedeDatos();
 	static SQLProductos SP = new SQLProductos();
@@ -112,6 +119,7 @@ public class Ventana_gestion_productos extends JFrame {
 				dispose();
 				Ventana_actulizacion_eliminacion frame = new Ventana_actulizacion_eliminacion();
 				frame.setVisible(true);
+				limpiarTabla();
 				SP.Mostrar();
 			}
 		});
