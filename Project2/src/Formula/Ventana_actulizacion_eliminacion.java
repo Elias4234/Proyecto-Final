@@ -64,10 +64,10 @@ public class Ventana_actulizacion_eliminacion extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Registro de productos");
+		JLabel lblNewLabel = new JLabel("Actualiza o elimina productos");
 		lblNewLabel.setForeground(Color.GREEN);
 		lblNewLabel.setFont(new Font("Arial", Font.BOLD, 20));
-		lblNewLabel.setBounds(70, 11, 227, 32);
+		lblNewLabel.setBounds(23, 11, 296, 32);
 		contentPane.add(lblNewLabel);
 		
 		JLabel lblNewLabel_1 = new JLabel("*Nombre");
